@@ -86,7 +86,7 @@ extension TubeArchivistServer {
         }
         
         do {
-            let db = try Connection("TAKit.sqlite")
+            let db = try Connection("\(dbPath)/TAKit.sqlite")
             try db.run(videos.insertMany(videoInsert))
         } catch {
             print("Error while adding videos to database: \(error)")

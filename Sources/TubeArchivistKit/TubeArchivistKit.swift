@@ -13,6 +13,10 @@ public struct TubeArchivistServer {
     let port: String
     let apiToken: String
     let session: URLSession
+    
+    let dbPath = NSSearchPathForDirectoriesInDomains(
+        .documentDirectory, .userDomainMask, true
+    ).first!
 
     public init(webAddress: String, port: String, apiToken: String) {
         self.webAddress = webAddress

@@ -10,7 +10,7 @@ import SQLite
 extension TubeArchivistServer {
     func initDatabase() throws {
         do {
-            let db = try Connection("TAKit.sqlite")
+            let db = try Connection("\(dbPath)/TAKit.sqlite")
             
             // Create channels table
             let channels = Table("channels")
@@ -38,8 +38,8 @@ extension TubeArchivistServer {
         }
         
         do {
-            let db = try Connection("TAKit.sqlite")
-
+            let db = try Connection("\(dbPath)/TAKit.sqlite")
+            
             let videos = Table("videos")
             let videoId = Expression<String>("videoId")
             let channelId = Expression<String>("channelId")

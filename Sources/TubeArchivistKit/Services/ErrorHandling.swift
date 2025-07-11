@@ -24,5 +24,6 @@ public enum TADatabaseError: Error {
     case videoTableCreationError
     case channelInsertionError
     case videoInsertionError
+    case channelGetError
 }
 
