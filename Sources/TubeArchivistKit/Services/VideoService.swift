@@ -30,7 +30,6 @@ extension TubeArchivistServer {
         }
         
         return videoArray
-//        return channelArray
     }
     
     func pullVideosFromPage(page: Int) async throws -> [TAKitVideo] {

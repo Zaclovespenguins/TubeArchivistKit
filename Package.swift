@@ -18,8 +18,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "5.0.2"),
-        .package(url: "https://github.com/evgenyneu/keychain-swift.git", from: "24.0.0"),
-        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.15.4")
+//        .package(url: "https://github.com/evgenyneu/keychain-swift.git", from: "24.0.0"),
+//        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.15.4")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -28,8 +28,8 @@ let package = Package(
             name: "TubeArchivistKit",
             dependencies: [
                 .product(name: "SwiftyJSON", package: "SwiftyJSON"),
-                .product(name: "KeychainSwift", package: "keychain-swift"),
-                .product(name: "SQLite", package: "SQLite.swift")
+//                .product(name: "KeychainSwift", package: "keychain-swift"),
+//                .product(name: "SQLite", package: "SQLite.swift")
             ]),
         .testTarget(
             name: "TubeArchivistKitTests",

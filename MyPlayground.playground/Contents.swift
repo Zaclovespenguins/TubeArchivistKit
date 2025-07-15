@@ -14,16 +14,14 @@ do {
 //    
 //    try TAConnection.populateChannelTable(channelObjectArryay: channelData)
     
-    let allChannels = try TAConnection.AllChannelsArray()
+    let allChannels = try await TAConnection.pullAllChannelsServer()
+    
     print(allChannels.map(\.channelName))
     
 } catch {
     print(error)
 }
 
-do {
-    
-}
 
 
 
