@@ -41,20 +41,5 @@ extension TubeArchivistServer {
             try db.run(channels.insertMany(channelObjectArryay))
         }
     }
-    
-    public func AllChannelsArray() throws -> [TAKitChannel] {
-        do {
-            let db = try Connection("\(dbPath)/TAKit.sqlite")
-            let channels = Table("channels")
-
-            let loadedUsers: [TAKitChannel] = try db.prepare(channels).map { row in
-                return try row.decode()
-            }
-            return loadedUsers
-        } catch {
-            print("Error getting channels from database: \(error)")
-            throw TADatabaseError.channelGetError
-        }
-    }
 }
 

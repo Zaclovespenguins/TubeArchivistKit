@@ -1,7 +1,6 @@
 import TubeArchivistKit
 import Foundation
-import SwiftyJSON
-import SQLite
+import SwiftUI
 
 let test_ip: String = "10.9.11.2"
 let test_port: String = "8000"
@@ -17,8 +16,17 @@ do {
     
     let allChannels = try TAConnection.AllChannelsArray()
     print(allChannels.map(\.channelName))
+    
 } catch {
     print(error)
 }
+
+do {
+    
+}
+
+
+
+
 
 
