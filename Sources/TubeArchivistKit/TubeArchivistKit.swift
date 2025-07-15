@@ -3,12 +3,6 @@ import SwiftyJSON
 import KeychainSwift
 
 public struct TubeArchivistServer {
-//    let keychain = KeychainSwift()
-//    public init(webAddress: String, port: String, apiToken: String) {
-//        keychain.set(webAddress, forKey: "webAddress")
-//        keychain.set(port, forKey: "port")
-//        keychain.set(apiToken, forKey: "apiToken")
-//    }
     let webAddress: String
     let port: String
     let apiToken: String
@@ -23,14 +17,9 @@ public struct TubeArchivistServer {
         self.port = port
         self.apiToken = apiToken
         self.session = TAURLSession(apiToken: apiToken)
-        
-        do {
-            try self.initDatabase()
-        } catch {
-            print("Database init failed: \(error)")
-        }
     }
     
+    // The expected response is "Ping"
     public func connectionTest() async throws -> String {
         let url = URL(string: "http://\(webAddress):\(port)/api/ping")!
         let request = URLRequest(url: url)

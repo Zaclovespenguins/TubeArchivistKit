@@ -64,34 +64,5 @@ extension TubeArchivistServer {
         
         return videoArray
     }
-    
-    public func populateVideoTable() async throws {
-        var channelObjectArray: [TAKitVideo] = try await self.pullAllVideosServer()
-        
-        var videoInsert: [[Setter]] = []
-
-        let videos = Table("videos")
-        let videoId = Expression<String>("videoId")
-        let channelId = Expression<String>("channelId")
-        let videoTitle = Expression<String>("videoTitle")
-        let videoDescription = Expression<String>("videoDescription")
-        let videoUrl = Expression<String>("videoUrl")
-        let thumbnailUrl = Expression<String>("thumbnailUrl")
-        let hasWatched = Expression<Bool>("hasWatched")
-        let watchedDate = Expression<String>("watchedDate")
-        let publishedDate = Expression<String>("publishedDate")
-        
-        for video in channelObjectArray {
-            videoInsert.append([videoId <- video.videoId, channelId <- video.channelId, videoTitle <- video.videoTitle, videoDescription <- video.videoDescription, videoUrl <- video.videoUrl, thumbnailUrl <- video.thumbnailUrl, hasWatched <- video.hasWatched, watchedDate <- video.watchedDate, publishedDate <- video.publishedDate])
-        }
-        
-        do {
-            let db = try Connection("\(dbPath)/TAKit.sqlite")
-            try db.run(videos.insertMany(videoInsert))
-        } catch {
-            print("Error while adding videos to database: \(error)")
-            throw TADatabaseError.videoInsertionError
-        }
-    }
 }
 

@@ -31,15 +31,5 @@ extension TubeArchivistServer {
         
         return channelArray
     }
-    
-    public func populateChannelTable(channelObjectArryay: [TAKitChannel]) throws {
-        
-        let channels = Table("channels")
-        
-        do {
-            let db = try Connection("\(dbPath)/TAKit.sqlite")
-            try db.run(channels.insertMany(channelObjectArryay))
-        }
-    }
 }
 
